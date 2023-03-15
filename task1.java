@@ -2,31 +2,37 @@
 // Ввод:5
 // Треугольное число 1 + 2 + 3 + 4 + 5 = 15
 // n! 1 * 2 * 3 * 4 * 5 = 120
-
-package HM_from_0203;
-
 import java.util.Scanner;
 
 
-
-public class Ex_1 {
-    public static void main(String[] args) {
-        Scanner iScanner = new Scanner(System.in, "Cp866");
-        System.out.print("Введите число: ");
-        int number = Integer.parseInt(iScanner.nextLine());
-        System.out.printf("Вы ввели: %d \n", number);
-
-        int count = 0;
-        for (int i = 1; i <= number; i++) {
-            count = number * (number + 1)/2;
+public class task1 {
+    static int summa(int num){
+        int sum = 0;
+        while (num>0){
+            sum = sum +num;
+            num--;
         }
-        System.out.printf("Треугольное число: %d \n" , count);
-
-        int res = 1;
-        for (int i = 1; i <= number; i++) {
-            res = res * i;
-        }
-        System.out.printf("Факториал n!: %d \n", res);
-        iScanner.close();
+        return sum;
     }
+
+    static int factorial(int num){
+        if (num == 1) return 1;
+        else {
+        return num * factorial(num - 1);
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner iScanner= new Scanner(System.in);
+        System.out.print("Введите целое число N: ");
+        int num = iScanner.nextInt();
+        // System.out.println(num);
+        iScanner.close();
+
+        // 
+    System.out.println("Сумма чисел от 1 до N равна: " + summa(num));
+
+    System.out.print("Факториал числа N равeн: " + factorial(num));
+
+}
 }
